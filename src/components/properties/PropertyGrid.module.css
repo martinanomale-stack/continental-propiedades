@@ -1,0 +1,151 @@
+/* PropertyGrid.module.css */
+.filtersBar {
+  padding: 14px 1.25rem 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 60px;
+  z-index: 10;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 180px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.searchInput:focus { border-color: var(--accent) }
+
+.select {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.select:focus { border-color: var(--accent) }
+
+.vistaBtns {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.vistaBtn {
+  background: none;
+  border: none;
+  padding: 7px 10px;
+  cursor: pointer;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  transition: background 0.15s, color 0.15s;
+}
+.vistaBtn:hover   { background: var(--surface2) }
+.vistaBtn.active  { background: var(--accent); color: #fff }
+
+.statsRow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+}
+.statChip {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text2);
+}
+.statChip:hover { border-color: var(--accent) }
+.statChipActive { background: var(--accent-light); border-color: var(--accent); color: var(--accent); font-weight: 700 }
+
+.dotDisponible { width:8px;height:8px;border-radius:50%;background:#28a745;flex-shrink:0 }
+.dotReservada  { width:8px;height:8px;border-radius:50%;background:#ffc107;flex-shrink:0 }
+.dotEnCons     { width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0 }
+.dotVendida    { width:8px;height:8px;border-radius:50%;background:var(--danger);flex-shrink:0 }
+.totalChip     { padding: 4px 10px; font-size:12px; font-weight:700; color:var(--text3) }
+
+/* Grid / List layouts */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  padding: 1.25rem;
+}
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1.25rem;
+}
+
+/* Loading */
+.loadingState {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  padding: 1.25rem;
+}
+.skeleton {
+  height: 320px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, var(--surface2) 25%, var(--border) 50%, var(--surface2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0 } }
+
+/* Empty */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  color: var(--text3);
+  text-align: center;
+}
+.btnNewEmpty {
+  margin-top: 1rem;
+  padding: 9px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr }
+  .filtersBar { top: 0 }
+  .select { display: none }
+}

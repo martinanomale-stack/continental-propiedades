@@ -1,0 +1,73 @@
+/* Button.module.css — matches original .btn-save, .btn-cancel, .btn-new, etc. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
+  padding: 9px 18px;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.97) }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none }
+
+/* Variants */
+.primary   { background: var(--accent); color: #fff }
+.primary:hover { background: #234f33 }
+
+.secondary { background: var(--surface2); color: var(--text2); border: 1px solid var(--border) }
+.secondary:hover { background: var(--border) }
+
+.danger    { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger) }
+.danger:hover { background: var(--danger); color: #fff }
+
+.ghost     { background: none; color: var(--text2); border: 1px solid var(--border) }
+.ghost:hover { background: var(--surface2) }
+
+.new       { background: #fff; color: var(--accent); border: none; padding: 8px 16px }
+.new:hover { background: #e8f5ee }
+
+/* Loading spinner */
+.loading { opacity: 0.7; pointer-events: none }
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg) } }
+
+/* ── Status badges ── */
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+}
+.badgeDisp { background: #e8f5ee; color: var(--accent); border: 1px solid rgba(44,95,63,0.3) }
+.badgeRes  { background: var(--amber-light); color: #856404; border: 1px solid rgba(212,160,18,0.4) }
+.badgeCons { background: var(--blue-light); color: var(--blue); border: 1px solid rgba(26,74,122,0.25) }
+.badgeVend { background: #fceae8; color: var(--danger); border: 1px solid rgba(192,57,43,0.3) }
+
+/* ── Role badges ── */
+.roleBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.roleAdmin  { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.3) }
+.roleVendor { background: rgba(26,74,122,0.35);  border-color: rgba(26,74,122,0.5) }
+.roleGuest  { background: rgba(212,160,18,0.3);  border-color: rgba(212,160,18,0.5) }
